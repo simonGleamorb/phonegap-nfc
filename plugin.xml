@@ -25,6 +25,14 @@
                 <param name="onload" value="true" />
             </feature>
         </config-file>
+        
+        <config-file target="AndroidManifest.xml" parent="/manifest/application/activity[@android:name='MainActivity']"> 
+                <intent-filter>
+                    <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
+                    <data android:mimeType="application/json-stampit"/>
+                    <category android:name="android.intent.category.DEFAULT"/>
+                </intent-filter>
+        </config-file>
 
         <source-file src="src/android/src/com/chariotsolutions/nfc/plugin/NfcPlugin.java"
             target-dir="src/com/chariotsolutions/nfc/plugin"/>
